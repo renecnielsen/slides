@@ -1,0 +1,603 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>The Go Project</title>
+
+    <link rel="stylesheet" href="../../css/reveal.css">
+    <link rel="stylesheet" href="../../css/theme/from_slides.css">
+    <link rel="stylesheet" href="../../css/theme/go.css" id="theme">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400" rel="stylesheet">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="../../lib/css/zenburn.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? '../../css/print/pdf.css' : '../../css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+</head>
+<body>
+    <div style="width: 100%; height: 100%;">
+        <div class="reveal">
+            <div class="slides">
+                <section>
+                    <div class="sl-block" data-block-type="image" style="min-width: 30px; min-height: 30px; width: 600px; height: 600px; left: 680px; right:auto; top: 10%;">
+                        <div class="sl-block-content" style="z-index: 13;">
+                            <img data-natural-width="1200" data-natural-height="1200" style="" data-lazy-loaded="" data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/361872/images/4349908/00_Go_negatif_RVB_C02C2D.png"/>
+                        </div>
+                    </div>
+                    <div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 1980px; left: auto; right:auto; top: 70%;">
+                        <div class="sl-block-content" style="z-index: 12">
+                            <h1>IFRC Go Development</h1>
+                            <h2>Update, January 2018</h2>
+                        </div>
+                    </div>
+                </section>
+                <!-- <section>
+                    <div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 1980px; left: 19px; top: 47px;">
+                        <div class="sl-block-content" style="z-index: 13;" data-gramm_id="8059ebb0-71f7-b4b6-c2b9-173575b68f11" data-gramm="true" data-gramm_editor="true">
+                            <h1 style="text-align:left">What Is Go?</h1>
+                        </div>
+                    </div>
+                    <div class="sl-block" data-block-type="text" style="width: 340px; left: 19px; top: 230px; height: auto;">
+                        <div class="sl-block-content fragment" style="text-align: left; z-index: 10;" data-fragment-index="0">
+                            <h3>Vision</h3>
+                        </div>
+                    </div>
+                    <div class="sl-block" data-block-type="text" style="width: 1400px; left: 340px; top: 230px; height: auto;">
+                        <div class="sl-block-content fragment" style="text-align: left; z-index: 11;" data-gramm_id="0d136a43-fa1c-03dd-2f4b-1b3322c54748" data-gramm="true" data-gramm_editor="true" data-fragment-index="0">
+                            <p>
+                                “The IFRC Go Platform will make all disaster information universally accessible and useful to IFRC responders for better decision making.”
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="sl-block" data-block-type="text" style="width: 340px; left: 19px; top: 390px; height: auto;">
+                        <div class="sl-block-content fragment" style="text-align: left; z-index: 14;" data-fragment-index="1">
+                            <h3>Objectives</h3>
+                        </div>
+                    </div>
+                    <div class="sl-block" data-block-type="text" style="width: 1400px; left: 340px; top: 370px; height: auto;">
+                        <div class="sl-block-content" style="text-align: left; z-index: 15; " data-gramm_id="0d136a43-fa1c-03dd-2f4b-1b3322c54748" data-gramm="true" data-gramm_editor="true">
+                            <ul>
+                                <li class="fragment" data-fragment-index="1">
+                                    <p>
+                                        <span style="font-size:0.7em">Faster decision making through effective information management</span>
+                                    </p>
+                                </li>
+                                <li class="fragment" data-fragment-index="2">
+                                    <p>
+                                        <span style="font-size:0.7em">Better analysis through visualization &amp; interaction with data</span>
+                                    </p>
+                                </li>
+                                <li class="fragment" data-fragment-index="3">
+                                    <p>
+                                        <span style="font-size:0.7em">Reorient IFRC data from reporting to analytics and research</span>
+                                    </p>
+                                </li>
+                                <li class="fragment" data-fragment-index="4">
+                                    <p>
+                                        <span style="font-size:0.7em">Improve engagement with Movement and external stakeholders during emergency response</span>
+                                    </p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="sl-block" data-block-type="text" style="width: 340px; left: 19px; top: 750px; height: auto;">
+                        <div class="sl-block-content fragment" style="text-align: left; z-index: 16;" data-fragment-index="5">
+                            <h3>Challenges</h3>
+                        </div>
+                    </div>
+                    <div class="sl-block" data-block-type="text" style="width: 1400px; left: 340px; top: 730px; height: auto;">
+                        <div class="sl-block-content" style="text-align: left; z-index: 17;" data-gramm_id="0d136a43-fa1c-03dd-2f4b-1b3322c54748" data-gramm="true" data-gramm_editor="true">
+                            <ul>
+                                <li class="fragment" data-fragment-index="5">
+                                    <p>
+                                        <span style="font-size:0.7em">Uncoordinated data and information management within IFRC: Fragmentation of data, information products and documents in emails, laptop drives, portable drives, network drives, cloud drives, intranet, extranet, etc.</span>
+                                    </p>
+                                </li>
+                                <li class="fragment" data-fragment-index="6">
+                                    <p>
+                                        <span style="font-size:0.7em">Large amount of information produced but difficult to access and reuse</span>
+                                    </p>
+                                </li>
+                                <li class="fragment" data-fragment-index="7">
+                                    <span style="font-size:0.7em">Outdated and lack of integration of tools (current system is 13 years old)</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </section> -->
+                <section>
+                    <div class="sl-block" data-block-type="text" style="height: auto; width: 1920px; left: 19px; top: 24px;">
+                        <div class="sl-block-content" style="z-index: 10;" data-gramm_id="8059ebb0-71f7-b4b6-c2b9-173575b68f11" data-gramm="true" data-gramm_editor="true">
+                            <h1>How We Do It: Modularity</h1>
+                            <p>
+                                Building small things and connecting them makes it easier to adapt, align, share and upgrade individual parts.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="sl-block" data-block-type="text" style="width: 1920px; left: 19px; top: 270px; height: auto;">
+                        <div class="sl-block-content fragment" style="text-align: left; z-index: 11;" data-gramm_id="dfc97b9c-ded0-573d-214b-8523dabeee4a" data-gramm="true" data-gramm_editor="true" data-fragment-index="0">
+                            <h2>APIs</h2>
+                            <ul>
+                                <li>Making data from Excel sheets and similar available to others through simple sharing and APIs</li>
+                                <li>We're currently creating APIs for IFRC data so others can use it</li>
+                                <li>Only use data from external partners that is easy to maintain and update</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="sl-block" data-block-type="text" style="width: 1920px; left: 19px; top: 600px; height: auto;">
+                        <div class="sl-block-content fragment" style="text-align: left; z-index: 13;" data-gramm_id="dfc97b9c-ded0-573d-214b-8523dabeee4a" data-gramm="true" data-gramm_editor="true" data-fragment-index="1">
+                            <h2>Segregation of Functionalities</h2>
+                            <ul>
+                                <li>Backend segregated from frontend</li>
+                                <li>Secondary analysis in The Data Entry and Exploration Platform (DEEP)</li>
+                                <li>Core GIS functionality in specialised GIS software (GeoNode)</li>
+                                <li>Mobile Data Collection using ODK & KoBo</li>
+                                <li>etc.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+                <section>
+                    <div class="sl-block" data-block-type="text" style="top: 43px; height: auto; width: 1920px; left: auto; right: auto;">
+                        <div class="sl-block-content" style="z-index: 11;" data-gramm_id="2be8c79b-4d21-5e10-5e84-66fd792d8d50" data-gramm="true" data-gramm_editor="true">
+                            <h1>Data Sharing</h1>
+                        </div>
+                    </div>
+                    <div class="sl-block" data-block-type="image" style="top: 160px; width: 1920px; left: auto; right: auto;">
+                        <div class="sl-block-content" style="z-index: 13;">
+                            <iframe data-src="http://ifrcgo.org/datalibrary" style="width: 1920px;  height: 900px;"></iframe>
+                        </div>
+                    </div>
+                </section>
+                <section data-markdown>
+                    <textarea data-template>
+                        ## Open Source
+
+                        All code is developed openly and shared under an MIT licence on Github
+
+                        - [Go Frontend](https://github.com/IFRCGo/go-frontend)
+                        - [Go API](https://github.com/IFRCGo/go-api)
+                        - [Go Functions](https://github.com/IFRCGo/go-functions)
+                        - [Go Infrastructure](https://github.com/IFRCGo/go-infrastructure)
+                    </textarea>
+                </section>
+                <section>
+                    <div class="sl-block" data-block-type="text" style="height: auto; width: 1200px; left: 19px; top: 47px;">
+                        <div class="sl-block-content" style="z-index: 11;" data-gramm_id="8059ebb0-71f7-b4b6-c2b9-173575b68f11" data-gramm="true" data-gramm_editor="true">
+                            <h1 style="text-align:left">Tech: Modern + Mature</h1>
+                        </div>
+                    </div>
+                    <div class="sl-block" data-block-type="image" style="min-width: 30px; min-height: 30px; width: 82px; height: 82px; left: 155px; top: 243px;">
+                        <div class="sl-block-content fragment" style="z-index: 12;" data-fragment-index="0">
+                            <img data-natural-width="240" data-natural-height="240" style="" data-lazy-loaded="" data-src="https://upload.wikimedia.org/wikipedia/en/6/60/PostGIS_logo.png"/>
+                        </div>
+                    </div>
+                    <div class="sl-block" data-block-type="image" style="min-width: 30px; min-height: 30px; width: 82px; height: 82px; left: 55px; top: 243px;">
+                        <div class="sl-block-content fragment" style="z-index: 13;" data-fragment-index="0">
+                            <img data-natural-width="120" data-natural-height="120" style="" data-lazy-loaded="" data-src="https://wiki.postgresql.org/images/3/30/PostgreSQL_logo.3colors.120x120.png"/>
+                        </div>
+                    </div>
+                    <div class="sl-block" data-block-type="image" style="min-width: 30px; min-height: 30px; width: 288px; height: 144px; left: 11px; top: 534px;">
+                        <div class="sl-block-content fragment" style="z-index: 14;" data-fragment-index="6">
+                            <img data-natural-width="600" data-natural-height="300" style="" data-lazy-loaded="" data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/361872/images/4350001/geonode-logo-600x300.png"/>
+                        </div>
+                    </div>
+                    <div class="sl-block" data-block-type="image" style="min-width: 30px; min-height: 30px; width: 210px; height: 44px; left: 695px; top: 295px;">
+                        <div class="sl-block-content fragment" style="z-index: 15;" data-fragment-index="2">
+                            <img data-natural-width="792" data-natural-height="166" style="" data-lazy-loaded="" data-src="https://www.tableau.com/sites/default/files/pages/tableau_cmyk_2015.png"/>
+                        </div>
+                    </div>
+                    <div class="sl-block" data-block-type="image" style="min-width: 30px; min-height: 30px; width: 275px; height: 74px; left: 358px; top: 243px;">
+                        <div class="sl-block-content fragment" style="z-index: 16;" data-fragment-index="1">
+                            <img data-natural-width="594" data-natural-height="160" style="" data-lazy-loaded="" data-src="https://www.docker.com/sites/default/files/horizontal_large.png"/>
+                        </div>
+                    </div>
+                    <div class="sl-block" data-block-type="image" style="min-width: 30px; min-height: 30px; width: 223px; height: 77px; left: 703px; top: 402px;">
+                        <div class="sl-block-content fragment" style="z-index: 17;" data-fragment-index="5">
+                            <img data-natural-width="1481" data-natural-height="512" style="" data-lazy-loaded="" data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/361872/images/4350110/logomono-react-mono.png"/>
+                        </div>
+                    </div>
+                    <div class="sl-block" data-block-type="image" style="min-width: 30px; min-height: 30px; width: 215px; height: 75px; left: 49px; top: 402px;">
+                        <div class="sl-block-content fragment" style="z-index: 18;" data-fragment-index="3">
+                            <img data-natural-width="1200" data-natural-height="418" style="" data-lazy-loaded="" data-src="https://www.djangoproject.com/s/img/logos/django-logo-positive.png"/>
+                        </div>
+                    </div>
+                    <div class="sl-block" data-block-type="image" style="min-width: 30px; min-height: 30px; width: 242px; height: 86px; left: 358px; top: 367px;">
+                        <div class="sl-block-content fragment" style="z-index: 19;" data-fragment-index="4">
+                            <img style="" data-natural-width="248" data-natural-height="88" data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/361872/images/4350584/GraphQL___A_query_language_for_your_API.png"/>
+                        </div>
+                    </div>
+                    <div class="sl-block" data-block-type="image" style="min-width: 30px; min-height: 30px; width: 262px; height: 59px; left: 349px; top: 576px;">
+                        <div class="sl-block-content fragment" style="z-index: 20;" data-fragment-index="6">
+                            <img style="" data-natural-width="800" data-natural-height="180" data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/361872/images/4350595/mapbox-logo-color.png"/>
+                        </div>
+                    </div>
+                    <div class="sl-block" data-block-type="image" style="min-width: 30px; min-height: 30px; width: 238px; height: 93px; left: 709px; top: 555px;">
+                        <div class="sl-block-content fragment" style="z-index: 21;" data-fragment-index="6">
+                            <img style="" data-natural-width="460" data-natural-height="180" data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/361872/images/4350600/logo_CARTO_positive_180.png"/>
+                        </div>
+                    </div>
+                    <div class="sl-block" data-block-type="image" style="min-width: 30px; min-height: 30px; width: 63px; height: 60px; left: 769px; top: 228px;">
+                        <div class="sl-block-content fragment" style="z-index: 22;" data-fragment-index="2">
+                            <img data-natural-width="506" data-natural-height="480" style="" data-src="https://upload.wikimedia.org/wikipedia/en/thumb/1/15/Logo_D3.svg/506px-Logo_D3.svg.png"/>
+                        </div>
+                    </div>
+                    <div class="sl-block" data-block-type="image" style="min-width: 30px; min-height: 30px; width: 148px; height: 57px; left: 406px; top: 453px;">
+                        <div class="sl-block-content fragment" style="z-index: 23;" data-fragment-index="4">
+                            <img style="" data-natural-width="782" data-natural-height="302" data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/361872/images/4350618/Graphene-Python.png"/>
+                        </div>
+                    </div>
+                </section>
+                <section>
+                    <div class="sl-block" data-block-type="text" style="top: 47%;">
+                        <div class="sl-block-content" style="z-index: 10;">
+                            <h2 style="text-align:left">Phase 0 (Last 12 Months)</h2>
+                            <h1 style="text-align:left">Prototyping, Testing Ideas, Changing Minds</h1>
+                        </div>
+                    </div>
+                </section>
+                <section>
+                    <div class="sl-block" data-block-type="text" style="top: 43px; height: auto; width: 1920px; left: auto; right: auto;">
+                        <div class="sl-block-content" style="z-index: 11;" data-gramm_id="2be8c79b-4d21-5e10-5e84-66fd792d8d50" data-gramm="true" data-gramm_editor="true">
+                            <h2>Homepage</h2>
+                        </div>
+                    </div>
+                    <div class="sl-block" data-block-type="image" style="top: 144px; width: 1920px; left: auto; right: auto;">
+                        <div class="sl-block-content" style="z-index: 13;">
+                            <iframe data-src="http://ifrcgo.org" style="width: 100%;  height: 900px;"></iframe>
+                        </div>
+                    </div>
+                </section>
+                <section>
+                    <div class="sl-block" data-block-type="text" style="top: 43px; height: auto; width: 1920px; left: auto; right: auto;">
+                        <div class="sl-block-content" style="z-index: 11;" data-gramm_id="2be8c79b-4d21-5e10-5e84-66fd792d8d50" data-gramm="true" data-gramm_editor="true">
+                            <h2>Individual Operation</h2>
+                        </div>
+                    </div>
+                    <div class="sl-block" data-block-type="image" style="top: 144px; width: 1920px; left: auto; right: auto;">
+                        <div class="sl-block-content" style="z-index: 13;">
+                            <iframe data-src="http://ifrcgo.org/appeals/mdrtr003/" style="width: 100%;  height: 900px;"></iframe>
+                        </div>
+                    </div>
+                </section>
+                <section>
+                    <div class="sl-block" data-block-type="text" style="top: 43px;">
+                        <div class="sl-block-content">
+                            <h2>Ongoing Operations</h2>
+                        </div>
+                    </div>
+                    <div class="sl-block" data-block-type="text" style="top: 144px; height: auto; width: 1920px; left: auto; right: auto;">
+                        <div class="sl-block-content" style="z-index: 13;">
+                            <div class='tableauPlaceholder' id='viz1511116125767' style='position: relative'><noscript><a href='#'><img alt='Ongoing Emergency OperationsThis dashboard includes all Emergency Appeals and Disaster Relief Emergency Fund (DREFs) operations that are currently ongoing. ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;On&#47;OngoingOperations&#47;Dashboard_ALL&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='OngoingOperations&#47;Dashboard_ALL' /><param name='tabs' value='no' /><param name='toolbar' value='no' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;On&#47;OngoingOperations&#47;Dashboard_ALL&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1511116125767');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='1370px';vizElement.style.height='854px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+                        </div>
+                    </section>
+                    <section>
+                        <div class="sl-block" data-block-type="text" style="top: 43px;">
+                            <div class="sl-block-content">
+                                <h2>Historic Deployments</h2>
+                            </div>
+                        </div>
+                        <div class="sl-block" data-block-type="image" style="width: 1920px; height: 1850px; top: 144px;">
+                            <div class="sl-block-content" style="z-index: 11;">
+                                <div class='tableauPlaceholder' id='viz1511118684437' style='position: relative'><noscript><a href='#'><img alt='Global view ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;ER&#47;ERUdeploymentssince1996&#47;Globalview&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='ERUdeploymentssince1996&#47;Globalview' /><param name='tabs' value='no' /><param name='toolbar' value='no' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;ER&#47;ERUdeploymentssince1996&#47;Globalview&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1511118684437');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='1270px';vizElement.style.height='1827px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>                        </div>
+                        </div>
+                    </section>
+
+                    <section>
+                        <div class="sl-block" data-block-type="text" style="top: 47%;">
+                            <div class="sl-block-content" style="z-index: 10;">
+                                <h2 style="text-align:left">Phase 1 (Ongoing - January 2018)</h2>
+                                <h1 style="text-align:left">Setting Up Core Technology + New Design</h1>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="scrollable">
+                        <div class="sl-block" data-block-type="text" style="top: 43px; height: auto; width: 1920px; left: auto; right: auto;">
+                            <div class="sl-block-content">
+                                <h2>New Design: Homepage</h2>
+                            </div>
+                        </div>
+                        <div class="sl-block" data-block-type="image" style="height: auto; top: 144px;">
+                            <div class="sl-block-content" style="z-index: 13;">
+                                <object width="1920px" height="960px" data="assets/homepage.pdf"></object>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="scrollable">
+                        <div class="sl-block" data-block-type="text" style="top: 43px; height: auto; width: 1920px; left: auto; right: auto;">
+                            <div class="sl-block-content">
+                                <h2>New Design: Field Report</h2>
+                            </div>
+                        </div>
+                        <div class="sl-block" data-block-type="image" style="height: auto; top: 144px;">
+                            <div class="sl-block-content" style="z-index: 13;">
+                                <object width="1920px" height="960px" data="assets/Field Report 1 (basics).pdf"></object>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="scrollable">
+                        <div class="sl-block" data-block-type="text" style="top: 43px; height: auto; width: 1920px; left: auto; right: auto;">
+                            <div class="sl-block-content">
+                                <h2>New Design: Emergencies</h2>
+                            </div>
+                        </div>
+                        <div class="sl-block" data-block-type="image" style="height: auto; top: 144px;">
+                            <div class="sl-block-content" style="z-index: 13;">
+                                <object width="1920px" height="960px" data="assets/Emergencies Page.pdf"></object>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="scrollable">
+                        <div class="sl-block" data-block-type="text" style="top: 43px; height: auto; width: 1920px; left: auto; right: auto;">
+                            <div class="sl-block-content">
+                                <h2>New Design: Individual Emergency</h2>
+                            </div>
+                        </div>
+                        <div class="sl-block" data-block-type="image" style="height: auto; top: 144px;">
+                            <div class="sl-block-content" style="z-index: 13;">
+                                <object width="1920px" height="960px" data="assets/Emergency Page.pdf"></object>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="scrollable">
+                        <div class="sl-block" data-block-type="text" style="top: 43px; height: auto; width: 1920px; left: auto; right: auto;">
+                            <div class="sl-block-content">
+                                <h2>New Design: Deployments</h2>
+                            </div>
+                        </div>
+                        <div class="sl-block" data-block-type="object" style="height: auto; top: 144px;">
+                            <div class="sl-block-content" style="z-index: 13;">
+                                <object width="1920px" height="960px" data="assets/deployments page- card.pdf"></object>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="scrollable">
+                        <div class="sl-block" data-block-type="text" style="top: 43px; height: auto; width: 1920px; left: auto; right: auto;">
+                            <div class="sl-block-content">
+                                <h2>New Design: Subscriptions</h2>
+                            </div>
+                        </div>
+                        <div class="sl-block" data-block-type="object" style="height: auto; top: 144px;">
+                            <div class="sl-block-content" style="z-index: 13;">
+                                <object width="1920px" height="960px" data="assets/subscriptions.pdf"></object>
+                            </div>
+                        </div>
+                    </section>
+                    <section>
+                        <div class="sl-block" data-block-type="text" style="top: 47%;">
+                            <div class="sl-block-content" style="z-index: 10;">
+                                <h2 style="text-align:left">Phase 2 (Expected March-August 2018)</h2>
+                                <h1 style="text-align:left">Contextual Information & <br/>
+                                National Society Users</h1>
+                            </div>
+                        </div>
+                    </section>
+                    <section>
+                        <div class="sl-block" data-block-type="text" style="height: auto; width: 1200px; left: 19px; top: 24px;">
+                            <div class="sl-block-content" style="z-index: 10;" data-gramm_id="8059ebb0-71f7-b4b6-c2b9-173575b68f11" data-gramm="true" data-gramm_editor="true">
+                                <h1 style="text-align:left">Baselines & Context</h1>
+                            </div>
+                        </div>
+                        <div class="sl-block" data-block-type="text" style="width: 1920px; left: 19px; top: 300px; height: auto; text-align: left; font-size: 1.6em">
+                            <div class="sl-block-content">
+                                    <li class="fragment" data-fragment-index="1">Global 3W</li>
+                                    <li class="fragment" data-fragment-index="2">Baseline Data</li>
+                                    <li class="fragment" data-fragment-index="3">Secondary Data</li>
+                                    <li class="fragment" data-fragment-index="4">External Data</li>
+                                    <li class="fragment" data-fragment-index="5">Country Profiles</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+                    <section>
+                        <div class="sl-block" data-block-type="text" style="height: auto; width: 1200px; left: 19px; top: 24px;">
+                            <div class="sl-block-content" style="z-index: 10;" data-gramm_id="8059ebb0-71f7-b4b6-c2b9-173575b68f11" data-gramm="true" data-gramm_editor="true">
+                                <h1 style="text-align:left">User Experience</h1>
+                            </div>
+                        </div>
+                        <div class="sl-block" data-block-type="text" style="width: 1920px; left: 19px; top: 300px; height: auto; text-align: left; font-size: 1.6em">
+                            <div class="sl-block-content">
+                                    <li class="fragment" data-fragment-index="1">Easier editing of content</li>
+                                    <li class="fragment" data-fragment-index="2">PDF downloads</li>
+                                    <li class="fragment" data-fragment-index="3">Even more focus on mobile phone use</li>
+                                    <li class="fragment" data-fragment-index="4">Beginning work on features supporting offline access and optimisation for poor bandwidth settings</li>
+                                    <li class="fragment" data-fragment-index="5">Iteration on existing design and functionality</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+                    <section>
+                        <div class="sl-block" data-block-type="text" style="top: 43px; height: auto;">
+                            <div class="sl-block-content" style="z-index: 11;" data-gramm_id="2be8c79b-4d21-5e10-5e84-66fd792d8d50" data-gramm="true" data-gramm_editor="true">
+                                <h2>DMIS Closing Down</h2>
+                            </div>
+                        </div>
+                        <div class="sl-block" data-block-type="image" style="height: auto; top: 144px;">
+                            <div class="sl-block-content" style="z-index: 13;">
+                                <img width="100%" data-src="assets/DMIS.png"/>
+                            </div>
+                        </div>
+                    </section>
+                    <section>
+                        <div class="sl-block" data-block-type="text" style="height: auto; width: 1200px; left: 19px; top: 24px;">
+                            <div class="sl-block-content" style="z-index: 10;" data-gramm_id="8059ebb0-71f7-b4b6-c2b9-173575b68f11" data-gramm="true" data-gramm_editor="true">
+                                <h2 style="text-align:left">Phase 3 (Expected Late 2018)</h2>
+                                <h1 style="text-align:left">Analysis & Translation</h1>
+                            </div>
+                        </div>
+                        <div class="sl-block" data-block-type="text" style="width: 1920px; left: 19px; top: 200px; height: auto;">
+                            <div class="sl-block" data-block-type="text" style="width: 1920px; left: 19px; top: 144px; height: auto; text-align: left; font-size: 1.6em">
+                                <div class="sl-block-content">
+                                <p>
+                                    Current ideas include:
+                                </p>
+                                <ul>
+                                    <li class="fragment" data-fragment-index="1">Translation into official languages</li>
+                                    <li class="fragment" data-fragment-index="2">Tighter integrations with GeoNode, DEEP, ODK, and KoBo</li>
+                                    <li class="fragment" data-fragment-index="3">"First Reporter" (volunteers and staff sending SMS, Photos, Videos)</li>
+                                    <li class="fragment" data-fragment-index="5">Thematic and Sectorial Focus</li>
+                                    <!-- <li class="fragment" data-fragment-index="4">Artificial Intelligence, Advanced Data Analysis/Data Science/Big Data</li>--->
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+                    <section data-markdown>
+                        <textarea data-template>
+                            # Thank You! Questions?
+                            
+                            Slides: http://ifrcgo.org/presentation/
+                        </textarea>
+                    </section>
+                </div>
+            </div>
+        </div>
+
+            <script src="../../lib/js/head.min.js"></script>
+            <script src="../../js/reveal.js"></script>
+
+            <script>
+            // More info about config & dependencies:
+            // - https://github.com/hakimel/reveal.js#configuration
+            // - https://github.com/hakimel/reveal.js#dependencies
+
+            Reveal.initialize({
+
+                // Dependencies
+                dependencies: [
+                    { src: '../../plugin/markdown/marked.js' },
+                    { src: '../../plugin/markdown/markdown.js' },
+                    { src: '../../plugin/notes/notes.js', async: true },
+                    { src: '../../plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+                ],
+                // The "normal" size of the presentation, aspect ratio will be preserved
+                // when the presentation is scaled to fit different resolutions. Can be
+                // specified using percentage units.
+                width: 1920,
+                height: 1080,
+
+                // Factor of the display size that should remain empty around the content
+                margin: 0.1,
+
+                // Bounds for smallest/largest possible scale to apply to content
+                minScale: 0.2,
+                maxScale: 1.5,
+
+                // Display controls in the bottom right corner
+                controls: true,
+
+                // Display a presentation progress bar
+                progress: true,
+
+                // Set default timing of 2 minutes per slide
+                defaultTiming: 120,
+
+                // Display the page number of the current slide
+                slideNumber: true,
+
+                // Push each slide change to the browser history
+                history: true,
+
+                // Enable keyboard shortcuts for navigation
+                keyboard: true,
+
+                // Enable the slide overview mode
+                overview: true,
+
+                // Vertical centering of slides
+                center: true,
+
+                // Enables touch navigation on devices with touch input
+                touch: true,
+
+                // Loop the presentation
+                loop: false,
+
+                // Change the presentation direction to be RTL
+                rtl: false,
+
+                // Randomizes the order of slides each time the presentation loads
+                shuffle: false,
+
+                // Turns fragments on and off globally
+                fragments: true,
+
+                // Flags if the presentation is running in an embedded mode,
+                // i.e. contained within a limited portion of the screen
+                embedded: false,
+
+                // Flags if we should show a help overlay when the questionmark
+                // key is pressed
+                help: true,
+
+                // Flags if speaker notes should be visible to all viewers
+                showNotes: false,
+
+                // Global override for autoplaying embedded media (video/audio/iframe)
+                // - null: Media will only autoplay if data-autoplay is present
+                // - true: All media will autoplay, regardless of individual setting
+                // - false: No media will autoplay, regardless of individual setting
+                autoPlayMedia: null,
+
+                // Number of milliseconds between automatically proceeding to the
+                // next slide, disabled when set to 0, this value can be overwritten
+                // by using a data-autoslide attribute on your slides
+                autoSlide: 0,
+
+                // Stop auto-sliding after user input
+                autoSlideStoppable: true,
+
+                // Use this method for navigation when auto-sliding
+                autoSlideMethod: Reveal.navigateNext,
+
+                // Enable slide navigation via mouse wheel
+                mouseWheel: false,
+
+                // Hides the address bar on mobile devices
+                hideAddressBar: true,
+
+                // Opens links in an iframe preview overlay
+                previewLinks: false,
+
+                // Transition style
+                transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+                // Transition speed
+                transitionSpeed: 'default', // default/fast/slow
+
+                // Transition style for full page slide backgrounds
+                backgroundTransition: 'fade', // none/fade/slide/convex/concave/zoom
+
+                // Number of slides away from the current that are visible
+                viewDistance: 3,
+
+                // Parallax background image
+                parallaxBackgroundImage: '', // e.g. "'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg'"
+
+                // Parallax background size
+                parallaxBackgroundSize: '', // CSS syntax, e.g. "2100px 900px"
+
+                // Number of pixels to move the parallax background per slide
+                // - Calculated automatically unless specified
+                // - Set to 0 to disable movement along an axis
+                parallaxBackgroundHorizontal: null,
+                parallaxBackgroundVertical: null,
+
+                // The display mode that will be used to show slides
+                display: 'block'
+            });
+            </script>
+        </body>
+        </html>
+
+⌘ + Shift + J
