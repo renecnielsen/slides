@@ -26,7 +26,7 @@
         <div class="reveal">
             <div class="slides">
                 <!-- Slide 1 - Title Slide -->
-				<section data-background-color="#e1f4fd"  data-menu-title="Title Slide">
+				<section data-background-color="#e1f4fd"  data-menu-title="Title Slide" id="title-slide">
 					<img src="img/GP_logo_RGB.svg" width="180px" class="cover" />
 					<h1>Media Monitoring: Share of Voice</h1>
                     <h3>An example of how even the best measurements can be <span class="chromatic-aberration">rather blurry</span></h3> <!-- Thanks to https://github.com/paambaati/rendering-at-scale -->
@@ -41,19 +41,19 @@
 				</section>
                 
                 <!--- Slide 2 - The Plan  -->
-				<section data-markdown>
+				<section data-markdown id="agenda">
                     # The Plan
-                    1. What _Was_ Share of Voice?
-                    1. What _Is_ Share of Voice?
-                    1. The Fluidity of Denominators
-                    1. So Many Voices! Which Shares Do We Actually Care About?
-                    1. On Taxonomies: Tentative Checklist for Getting the Right Shares
-                    1. Bonus Time!
-                    1. Discussion
+                    1. [What _Was_ Share of Voice?](#/mad-men)
+                    1. [What _Is_ Share of Voice?](#/share-of-voice-now)
+                    1. [The Fluidity of Denominators](#/fluid-denominators)
+                    1. [So Many Voices! Which Shares Do We Actually Care About?](#/milhouse)
+                    1. [On Taxonomies: Tentative Checklist for Getting the Right Shares](#/taxonomies)
+                    1. [Bonus Time!](#/google)
+                    1. [Discussion](#/thank-you)
                 </section>
                 
                 
-                <section data-menu-title="Mad Men">
+                <section data-menu-title="Mad Men" id="mad-men">
                     <h2>Share of Voice in the Olden Days</h2>
                     <iframe src="https://giphy.com/embed/lI9R1IcpESynS" width="1920" height="1064" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
                     <aside class="notes">
@@ -62,7 +62,7 @@
                 </section>
 
                 <!-- Before -->
-				<section data-background-color="#00447c" data-menu-title="Share of voice before">
+				<section data-background-color="#00447c" data-menu-title="Share of voice before" id="share-of-voice-before">
                 <div id="left">
                     <h1 style="text-align:left">Originally</h1>
                     <p class="spacer"/>
@@ -86,7 +86,7 @@
                 </section>
 
                 <!-- These Days -->
-				<section data-background-color="#cf5c42"  data-menu-title="Share of voice now">
+				<section data-background-color="#cf5c42"  data-menu-title="Share of voice now" id="share-of-voice-now">
                         <h1>These Days</h1>
                         <p class="spacer"/>
                         <p>"Share of voice" is any number of things. For example:</p>
@@ -101,7 +101,7 @@
                 </section>
 
                 <!-- Examples of fluid denominators -->
-				<section class="left" data-background-color="#cf5c42">
+				<section class="left" data-background-color="#cf5c42" id="fluid-denominators">
                         <h1>Examples of Fluidity</h1>
                         <p class="spacer"/>
                         <h3>1. The Demographic Baseline Changes</h3>
@@ -122,7 +122,7 @@
                         <h3>4. The algorithms change or their precision changes</h3>
                 </section>
 
-                <section data-background-image="https://j.gifs.com/4R5nJk.gif" data-menu-title="Milhouse isn't popular">
+                <section data-background-image="https://j.gifs.com/4R5nJk.gif" data-menu-title="Milhouse isn't popular" id="milhouse">
                     <h2 style="margin-top:50%; color:white;">More importantly, though</h2>
                     <h3 style="color:white;"">You don't care about superficial popularity like absolute numbers</h3>
                 </section>
@@ -136,7 +136,7 @@
                 <!-- Simple Examples --> 
 				<section>
 
-                    <section data-menu-title="UNICEF vs WFP">
+                    <section data-menu-title="UNICEF vs WFP" id="unicef-wfp">
                             <div class="flourish-embed" data-src="visualisation/170379"></div><script src="https://public.flourish.studio/resources/embed.js"></script>
                             <small><code>(WFP OR "World Food Programme")</code> vs. <code>(UNICEF OR ((UN OR "United Nations") AND "Children's Emergency Fund")</code></small>
                     </section>
@@ -156,7 +156,7 @@
                 </section>
 
                 <!-- On Taxonomies -->
-				<section class="left" data-background-color="#cf5c42">
+				<section class="left" data-background-color="#cf5c42" id="taxonomies">
                         <h1>A Few Words on Keywords</h1>
                         <p class="spacer"/>
                         <h3>The more comprehensive and concise the list of words, the more accurately you measure. Simple as that.</h3>
@@ -174,7 +174,7 @@
 
                 <!-- Examples of Global Pulse Research -->
                 <section>
-                    <section>
+                    <section id="projects">
                             <h1>Example: Biofuels Taxonomy</h1>
                             <object width="1920px" height="960px" data="doc/Biofuels Taxonomy, English.pdf"></object>
                     </section>
@@ -196,7 +196,7 @@
                 </section>
 
                 <!-- Many voices measure a share of, choose wisely -->
-                <section>
+                <section id="conclusion">
                         <h1>To Sum Up</h1>
                             <p>There are many different shares of voices that will make sense to KPIs.
                             <p class="spacer"/>
@@ -214,7 +214,7 @@
 
                 <!--- Google Search -->
                 <section>
-                    <section>
+                    <section id="google">
                         <h1>Bonus: Google Searches</h1>
                             <p>Let's also look at one last thing that's really interesting, and almost a share of voice. Google searches. How much do pelople search for WFP?</p>
                             <p class="spacer"/>
@@ -249,7 +249,7 @@
 
 
 
-                <section data-markdown>
+                <section data-markdown id="thank-you">
                     <textarea data-template>
                         # Thank You! Questions?
 
