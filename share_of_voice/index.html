@@ -26,7 +26,7 @@
         <div class="reveal">
             <div class="slides">
                 <!-- Slide 1 - Title Slide -->
-				<section data-background-color="#e1f4fd">
+				<section data-background-color="#e1f4fd"  data-menu-title="Title Slide">
 					<img src="img/GP_logo_RGB.svg" width="180px" class="cover" />
 					<h1>Media Monitoring: Share of Voice</h1>
                     <h3>An example of how even the best measurements can be <span class="chromatic-aberration">rather blurry</span></h3> <!-- Thanks to https://github.com/paambaati/rendering-at-scale -->
@@ -53,13 +53,16 @@
                 </section>
                 
                 
-                    <section>
-                        <h2>Share of Voice in the Olden Days</h2>
-                        <iframe src="https://giphy.com/embed/lI9R1IcpESynS" width="1920" height="1064" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
-                    </section>
+                <section data-menu-title="Mad Men">
+                    <h2>Share of Voice in the Olden Days</h2>
+                    <iframe src="https://giphy.com/embed/lI9R1IcpESynS" width="1920" height="1064" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+                    <aside class="notes">
+                        Here we have Joel Murray's (yes, Bill Murray's brother) Mad Men character <strong>Freddy Rumsen</strong>. He's pretty oblivious to the likes of media impressions. Or maybe he is philosophical. Who knows. But what the heck are they, afterall?
+                    </aside>
+                </section>
 
                 <!-- Before -->
-				<section data-background-color="#00447c">
+				<section data-background-color="#00447c" data-menu-title="Share of voice before">
                 <div id="left">
                     <h1 style="text-align:left">Originally</h1>
                     <p class="spacer"/>
@@ -83,7 +86,7 @@
                 </section>
 
                 <!-- These Days -->
-				<section data-background-color="#cf5c42">
+				<section data-background-color="#cf5c42"  data-menu-title="Share of voice now">
                         <h1>These Days</h1>
                         <p class="spacer"/>
                         <p>"Share of voice" is any number of things. For example:</p>
@@ -97,7 +100,7 @@
                         <p>What these have in common are that 1) you don't decide your own share, and 2) the voice, the denominator, is fluid and often unknown. The world decides for you. And it changes. All. The. Time.</p>
                 </section>
 
-                <!-- These Days -->
+                <!-- Examples of fluid denominators -->
 				<section class="left" data-background-color="#cf5c42">
                         <h1>Examples of Fluidity</h1>
                         <p class="spacer"/>
@@ -119,9 +122,9 @@
                         <h3>4. The algorithms change or their precision changes</h3>
                 </section>
 
-                <section data-background-image="https://j.gifs.com/4R5nJk.gif">
+                <section data-background-image="https://j.gifs.com/4R5nJk.gif" data-menu-title="Milhouse isn't popular">
                     <h2 style="margin-top:50%; color:white;">More importantly, though</h2>
-                    <h3 style="color:white;"">You don't care about superficial popularity</h3>
+                    <h3 style="color:white;"">You don't care about superficial popularity like absolute numbers</h3>
                 </section>
 
                 <!-- These Days -->
@@ -130,33 +133,29 @@
                         <h1><span style="color:#00447c;">Targeted</span> Share of Voice</h1>
                 </section>
 
-                <!-- These Days 
+                <!-- Simple Examples --> 
 				<section>
-                        <h1>Tweets about WFP or UNICEF</h1>
-                        <small>Average share of voice: </small>
-                        <img src="img/WFP_vs_UNICEF_on_Twitter.svg" width="100%" />
-                </section> -->
 
+                    <section data-menu-title="UNICEF vs WFP">
+                            <div class="flourish-embed" data-src="visualisation/170379"></div><script src="https://public.flourish.studio/resources/embed.js"></script>
+                            <small><code>(WFP OR "World Food Programme")</code> vs. <code>(UNICEF OR ((UN OR "United Nations") AND "Children's Emergency Fund")</code></small>
+                    </section>
+                    
 
-                <section>
-                        <div class="flourish-embed" data-src="visualisation/170379"></div><script src="https://public.flourish.studio/resources/embed.js"></script>
-                        <small><code>(WFP OR "World Food Programme")</code> vs. <code>(UNICEF OR ((UN OR "United Nations") AND "Children's Emergency Fund")</code></small>
-                </section>
-                
+                    <section data-menu-title="UNICEF vs WFP + Hunger" >
+                            <div class="flourish-embed" data-src="visualisation/170388"></div><script src="https://public.flourish.studio/resources/embed.js"></script>
+                            <small><code>(WFP OR "World Food Programme" OR "World Food Program") AND hunger</code> vs. <code>(UNICEF OR ((UN OR "United Nations") AND "Children's Emergency Fund")) AND hunger</code></small>
+                    </section>
+                    
 
-                <section>
-                        <div class="flourish-embed" data-src="visualisation/170388"></div><script src="https://public.flourish.studio/resources/embed.js"></script>
-                        <small><code>(WFP OR "World Food Programme" OR "World Food Program") AND hunger</code> vs. <code>(UNICEF OR ((UN OR "United Nations") AND "Children's Emergency Fund")) AND hunger</code></small>
-                </section>
-                
+                    <section data-menu-title="UNICEF vs WFP + Yemen">
+                            <div class="flourish-embed" data-src="visualisation/170395"></div><script src="https://public.flourish.studio/resources/embed.js"></script>
+                            <small><code>(WFP OR "World Food Programme") AND "Yemen"</code> vs. <code>(UNICEF OR ((UN OR "United Nations") AND "Children's Emergency Fund")) AND Yemen</code></small>
+                    </section>
 
-                <section>
-                        <div class="flourish-embed" data-src="visualisation/170395"></div><script src="https://public.flourish.studio/resources/embed.js"></script>
-                        <small><code>(WFP OR "World Food Programme") AND "Yemen"</code> vs. <code>(UNICEF OR ((UN OR "United Nations") AND "Children's Emergency Fund")) AND Yemen</code></small>
                 </section>
 
-
-                <!-- These Days -->
+                <!-- On Taxonomies -->
 				<section class="left" data-background-color="#cf5c42">
                         <h1>A Few Words on Keywords</h1>
                         <p class="spacer"/>
@@ -173,27 +172,30 @@
                             </ul>
                 </section>
 
-                <!-- These Days -->
+                <!-- Examples of Global Pulse Research -->
                 <section>
-                        <h1>Example: Biofuels Taxonomy</h1>
-                        <object width="1920px" height="960px" data="doc/Biofuels Taxonomy, English.pdf"></object>
+                    <section>
+                            <h1>Example: Biofuels Taxonomy</h1>
+                            <object width="1920px" height="960px" data="doc/Biofuels Taxonomy, English.pdf"></object>
+                    </section>
+
+                    <section>
+                            <h1>Example: Biofuels Result</h1>
+                            <p>Share of voice does not have to be brand related, of course. Here we see the propotions of word usage between years. Climate change related keywords gain share of voice over food related keywords.</p>
+                            <img src="img/biofuels.png" width="50%" />
+                    </section>
+
+                    <section data-background-iframe="http://post2015.unglobalpulse.net/"  data-menu-title="Example: Post-2015">
+                    </section>
+
+                    <section>
+                            <h1>Example: Using Other Brands as Fluctuating Baselines</h1>
+                            <p>To see if a campaign is gaining more traction than the baseline, we can compare with more static brands (brands that are generally not event-driven). Here an example for the Every Woman Every Child campaign</p>
+                            <iframe src="//gpcharts.s3.amazonaws.com/n13AA/index.html" frameborder="0" allowtransparency="true" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen width="900" height="600"></iframe>
+                    </section>
                 </section>
 
-                <section>
-                        <h1>Example: Biofuels Result</h1>
-                        <p>Share of voice does not have to be brand related, of course. Here we see the propotions of word usage between years. Climate change related keywords gain share of voice over food related keywords.</p>
-                        <img src="img/biofuels.png" width="50%" />
-                </section>
-
-                <section data-background-iframe="http://post2015.unglobalpulse.net/">
-                </section>
-
-                <section>
-                        <h1>Using Other Brands as Fluctuating Baselines</h1>
-                        <p>To see if a campaign is gaining more traction than the baseline, we can compare with more static brands (brands that are generally not event-driven). Here an example for the Every Woman Every Child campaign</p>
-                        <iframe src="//gpcharts.s3.amazonaws.com/n13AA/index.html" frameborder="0" allowtransparency="true" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen width="900" height="600"></iframe>
-                </section>
-
+                <!-- Many voices measure a share of, choose wisely -->
                 <section>
                         <h1>To Sum Up</h1>
                             <p>There are many different shares of voices that will make sense to KPIs.
@@ -210,54 +212,56 @@
                             <p>And many many more. Your job is to find those that make most sense to your KPIs and narratives.</p>
                     </section>
 
-                <!--- Slide X - Google Search -->
+                <!--- Google Search -->
                 <section>
-                    <h1>Bonus: Google Searches</h1>
-                        <p>Let's also look at one last thing that's really interesting, and almost a share of voice. Google searches. How much do pelople search for WFP?</p>
-                        <p class="spacer"/>
-                        <p>\[ \frac{\text{No. of WFP searches}}{\text{Total no. of Google searches}} =
-                            \text{Share of voice} \] </p>
-                        <p class="spacer"/>
+                    <section>
+                        <h1>Bonus: Google Searches</h1>
+                            <p>Let's also look at one last thing that's really interesting, and almost a share of voice. Google searches. How much do pelople search for WFP?</p>
+                            <p class="spacer"/>
+                            <p>\[ \frac{\text{No. of WFP searches}}{\text{Total no. of Google searches}} =
+                                \text{Share of voice} \] </p>
+                            <p class="spacer"/>
 
-                        <div class="fragment">
-                        <p>Only, we don't know</p>
-                        <ol>
-                        <li>No. of WFP searches</li>
-                        <li>Total no. of searches</li>
-                        </ol>
-                        <p>So that's not possible. Oh well.</p>
-                    </div>
-                </section>
-
-                <!--- Slide X - Google Search -->
-                <section>
-                    <h1>Luckily, there's Google Trends</h1>
-                    <div id="left">
-                        <p><small>
-                            Although we don't get individual Shares of Voice, we do get share of voice compared to the highest share of voice. The higest number of searches was for WHO in April 2018, and the search for other organisations is then relative to that. In that month, WFP's share of voice <em>relative to WHO</em> was only 7%.</small></p> 
-                        </p>
-                        <script type="text/javascript" src="https://ssl.gstatic.com/trends_nrtr/1644_RC01/embed_loader.js"></script> <script type="text/javascript"> trends.embed.renderExploreWidget("TIMESERIES", {"comparisonItem":[{"keyword":"/m/0840f","geo":"","time":"today 12-m"},{"keyword":"/m/02zwc","geo":"","time":"today 12-m"},{"keyword":"/m/07vqq","geo":"","time":"today 12-m"},{"keyword":"/m/0fxc0","geo":"","time":"today 12-m"},{"keyword":"/m/0840w","geo":"","time":"today 12-m"}],"category":0,"property":""}, {"exploreQuery":"q=%2Fm%2F0840f,%2Fm%2F02zwc,%2Fm%2F07vqq,%2Fm%2F0fxc0,%2Fm%2F0840w&date=today 12-m,today 12-m,today 12-m,today 12-m,today 12-m","guestPath":"https://trends.google.com:443/trends/embed/"}); </script> 
-                    </div>
-                    <div id="right">
-                        <img src="img/google_regions.png" />
-                    </div>
-                </section>
-
-
-
-                    <section data-markdown>
-                        <textarea data-template>
-                            # Thank You! Questions?
-
-                            René Clausen Nielsen
-
-                            Data Innovation Strategist, UN Global Pulse
-
-                            [rene@unglobalpulse.org](mailto:rene@unglobalpulse.org)
-
-                            [@ReneCNielsen](https://twitter.com/ReneCNielsen)
-                        </textarea>
+                            <div class="fragment">
+                            <p>Only, we don't know</p>
+                            <ol>
+                            <li>No. of WFP searches</li>
+                            <li>Total no. of searches</li>
+                            </ol>
+                            <p>So that's not possible. Oh well.</p>
+                        </div>
                     </section>
+
+                    <!--- Google Trends -->
+                    <section>
+                        <h1>Luckily, there's Google Trends</h1>
+                        <div id="left">
+                            <p><small>
+                                Although we don't get individual Shares of Voice, we do get share of voice compared to the highest share of voice. The higest number of searches was for WHO in April 2018, and the search for other organisations is then relative to that. In that month, WFP's share of voice <em>relative to WHO</em> was only 7%.</small></p> 
+                            </p>
+                            <script type="text/javascript" src="https://ssl.gstatic.com/trends_nrtr/1644_RC01/embed_loader.js"></script> <script type="text/javascript"> trends.embed.renderExploreWidget("TIMESERIES", {"comparisonItem":[{"keyword":"/m/0840f","geo":"","time":"today 12-m"},{"keyword":"/m/02zwc","geo":"","time":"today 12-m"},{"keyword":"/m/07vqq","geo":"","time":"today 12-m"},{"keyword":"/m/0fxc0","geo":"","time":"today 12-m"},{"keyword":"/m/0840w","geo":"","time":"today 12-m"}],"category":0,"property":""}, {"exploreQuery":"q=%2Fm%2F0840f,%2Fm%2F02zwc,%2Fm%2F07vqq,%2Fm%2F0fxc0,%2Fm%2F0840w&date=today 12-m,today 12-m,today 12-m,today 12-m,today 12-m","guestPath":"https://trends.google.com:443/trends/embed/"}); </script> 
+                        </div>
+                        <div id="right">
+                            <img src="img/google_regions.png" />
+                        </div>
+                    </section>
+                </section>
+
+
+
+                <section data-markdown>
+                    <textarea data-template>
+                        # Thank You! Questions?
+
+                        René Clausen Nielsen
+
+                        Data Innovation Strategist, UN Global Pulse
+
+                        [rene@unglobalpulse.org](mailto:rene@unglobalpulse.org)
+
+                        [@ReneCNielsen](https://twitter.com/ReneCNielsen)
+                    </textarea>
+                </section>
                 </div>
             </div>
         </div>
@@ -289,6 +293,9 @@
 
                     // Speaker notes
                     { src: '../plugin/notes/notes.js', async: true },
+
+                    // Menu
+                    { src: '../plugin/menu/menu.js' },
 
                     // MathJax
                     { src: '../plugin/math/math.js', async: true }
