@@ -23,6 +23,7 @@ reveal.js comes with a broad range of features including [nested slides](https:/
 - [Ready Event](#ready-event)
 - [Auto-sliding](#auto-sliding)
 - [Keyboard Bindings](#keyboard-bindings)
+- [Vertical Slide Navigation](#vertical-slide-navigation)
 - [Touch Navigation](#touch-navigation)
 - [Lazy Loading](#lazy-loading)
 - [API](#api)
@@ -225,7 +226,7 @@ We use [marked](https://github.com/chjj/marked) to parse Markdown. To customise 
 ```javascript
 Reveal.initialize({
 	// Options which are passed into marked
-	// See https://github.com/chjj/marked#options-1
+	// See https://marked.js.org/#/USING_ADVANCED.md#options
 	markdown: {
 		smartypants: true
 	}
@@ -259,7 +260,11 @@ Reveal.initialize({
 	// Display the page number of the current slide
 	slideNumber: false,
 
-	// Push each slide change to the browser history
+	// Add the current slide number to the URL hash so that reloading the
+	// page/copying the URL will return you to the same slide
+	hash: false,
+
+	// Push each slide change to the browser history. Implies `hash: true`
 	history: false,
 
 	// Enable keyboard shortcuts for navigation
@@ -279,6 +284,11 @@ Reveal.initialize({
 
 	// Change the presentation direction to be RTL
 	rtl: false,
+
+	// When this is enabled, stepping left/right from a vertical stack
+	// to an adjacent vertical stack will land you at the same vertical
+	// index instead of the top.
+	gridNavigation: false,
 
 	// Randomizes the order of slides each time the presentation loads
 	shuffle: false,
@@ -325,6 +335,12 @@ Reveal.initialize({
 
 	// Enable slide navigation via mouse wheel
 	mouseWheel: false,
+
+	// Hide cursor if inactive
+	hideInactiveCursor: true,
+
+	// Time before the cursor is hidden (in ms)
+	hideCursorTime: 5000,
 
 	// Hides the address bar on mobile devices
 	hideAddressBar: true,
@@ -423,9 +439,6 @@ Reveal.js doesn't _rely_ on any third party scripts to work but a few optional l
 ```javascript
 Reveal.initialize({
 	dependencies: [
-		// Cross-browser shim that fully implements classList - https://github.com/eligrey/classList.js/
-		{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
-
 		// Interpret Markdown in <section> elements
 		{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
 		{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
@@ -450,8 +463,6 @@ You can add your own extensions using the same syntax. The following properties 
 - **async**: [optional] Flags if the script should load after reveal.js has started, defaults to false
 - **callback**: [optional] Function to execute when the script has loaded
 - **condition**: [optional] Function which must return true for the script to be loaded
-
-To load these dependencies, reveal.js requires [head.js](http://headjs.com/) *(a script loading library)* to be loaded before reveal.js.
 
 ### Ready Event
 
@@ -506,6 +517,21 @@ Reveal.configure({
 });
 ```
 
+### Vertical Slide Navigation
+
+Slides can be nested within other slides to create vertical stacks (see [Markup](#markup)). When presenting, you use the left/right arrows to step through the main (horizontal) slides. When you arrive at a vertical stack you can optionally press the up/down arrows to view the vertical slides or skip past them by pressing the right arrow. Here's an example showing a bird's-eye view of what this looks like in action:
+
+<img src="https://static.slid.es/support/reveal.js-vertical-slides.gif" width="450">
+
+#### Grid Navigation
+If you are on a vertical slide and step right onto an adjacent vertical stack, you'll arrive at the top of that stack. Consider a deck with six slides organized in two stacks like this:
+```
+1.1   2.1
+1.2   2.2
+1.3   2.3
+```
+If you're on slide 1.3 and navigate right, you will normally move from 1.3 -> 2.1. If you prefer remaining at the same vertical index and going directly from 1.3 -> 2.3 you can enable the `gridNavigation` config option: `Reveal.configure({ gridNavigation: true })`.
+			
 ### Touch Navigation
 
 You can swipe to navigate through a presentation on any touch-enabled device. Horizontal swipes change between horizontal slides, vertical swipes change between vertical slides. If you wish to disable this you can set the `touch` config option to false when initializing reveal.js.
@@ -516,7 +542,7 @@ If there's some part of your content that needs to remain accessible to touch ev
 
 When working on presentation with a lot of media or iframe content it's important to load lazily. Lazy loading means that reveal.js will only load content for the few slides nearest to the current slide. The number of slides that are preloaded is determined by the `viewDistance` configuration option.
 
-To enable lazy loading all you need to do is change your `src` attributes to `data-src` as shown below. This is supported for image, video, audio and iframe elements. Lazy loaded iframes will also unload when the containing slide is no longer visible.
+To enable lazy loading all you need to do is change your `src` attributes to `data-src` as shown below. This is supported for image, video, audio and iframe elements.
 
 ```html
 <section>
@@ -528,6 +554,12 @@ To enable lazy loading all you need to do is change your `src` attributes to `da
   </video>
 </section>
 ```
+
+#### Lazy Loading Iframes
+Note that lazy loaded iframes ignore the `viewDistance` configuration and will only load when their containing slide becomes visible. Iframes are also unloaded as soon as the slide is hidden.
+
+When we lazy load a video or audio element, reveal.js won't start playing that content until the slide becomes visible. However there is no way to control this for an iframe since that could contain any kind of content. That means if we loaded an iframe before the slide is visible on screen it could begin playing media and sound in the background.
+
 
 ### API
 
@@ -585,6 +617,9 @@ Reveal.isLastSlide();
 Reveal.isOverview();
 Reveal.isPaused();
 Reveal.isAutoSliding();
+
+// Returns the top-level DOM element
+getRevealElement(); // <div class="reveal">...</div>
 ```
 
 ### Custom Key Bindings
@@ -1291,6 +1326,8 @@ Reveal.initialize({
 	math: {
 		mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
 		config: 'TeX-AMS_HTML-full'  // See http://docs.mathjax.org/en/latest/config-files.html
+		// pass other options into `MathJax.Hub.Config()`
+		TeX: { Macros: macros }
 	},
 
 	dependencies: [
@@ -1312,4 +1349,4 @@ If you want to include math inside of a presentation written in Markdown you nee
 
 MIT licensed
 
-Copyright (C) 2018 Hakim El Hattab, http://hakim.se
+Copyright (C) 2019 Hakim El Hattab, http://hakim.se
