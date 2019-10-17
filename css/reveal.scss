@@ -11,14 +11,17 @@
  * GLOBAL STYLES
  *********************************************/
 
-html,
-body {
+html {
 	width: 100%;
 	height: 100%;
+	height: 100vh;
+	height: calc( var(--vh, 1vh) * 100 );
 	overflow: hidden;
 }
 
 body {
+	height: 100%;
+	overflow: hidden;
 	position: relative;
 	line-height: 1;
 	margin: 0;
@@ -404,12 +407,19 @@ $controlsArrowAngleActive: 36deg;
 	}
 }
 
+.reveal[data-navigation-mode="linear"].has-horizontal-slides .navigate-up,
+.reveal[data-navigation-mode="linear"].has-horizontal-slides .navigate-down {
+	display: none;
+}
+
 // Adjust the layout when there are no vertical slides
+.reveal[data-navigation-mode="linear"].has-horizontal-slides .navigate-left,
 .reveal:not(.has-vertical-slides) .controls .navigate-left {
 	bottom: $controlArrowSpacing;
 	right: 0.5em + $controlArrowSpacing + $controlArrowSize;
 }
 
+.reveal[data-navigation-mode="linear"].has-horizontal-slides .navigate-right,
 .reveal:not(.has-vertical-slides) .controls .navigate-right {
 	bottom: $controlArrowSpacing;
 	right: 0.5em;
@@ -556,17 +566,7 @@ $controlsArrowAngleActive: 36deg;
 	width: 100%;
 	height: 100%;
 	overflow: hidden;
-	touch-action: none;
-}
-
-// Mobile Safari sometimes overlays a header at the top
-// of the page when in landscape mode. Using fixed
-// positioning ensures that reveal.js reduces its height
-// when this header is visible.
-@media only screen and (orientation : landscape) {
-	.reveal.ua-iphone {
-		position: fixed;
-	}
+	touch-action: pinch-zoom;
 }
 
 .reveal .slides {
@@ -627,6 +627,7 @@ $controlsArrowAngleActive: 36deg;
 	padding-top: 0;
 	padding-bottom: 0;
 	pointer-events: none;
+	height: 100%;
 }
 
 .reveal .slides>section.present,
@@ -801,10 +802,10 @@ $controlsArrowAngleActive: 36deg;
 	transform: scale(0.2);
 }
 @include transition-vertical-past(zoom) {
-	transform: translate(0, -150%);
+	transform: scale(16);
 }
 @include transition-vertical-future(zoom) {
-	transform: translate(0, 150%);
+	transform: scale(0.2);
 }
 
 
@@ -1548,7 +1549,6 @@ $controlsArrowAngleActive: 36deg;
 	}
 
 
-
 /*********************************************
  * PLAYBACK COMPONENT
  *********************************************/
@@ -1566,6 +1566,32 @@ $controlsArrowAngleActive: 36deg;
 .reveal.overview .playback {
 	opacity: 0;
 	visibility: hidden;
+}
+
+
+/*********************************************
+ * CODE HIGHLGIHTING
+ *********************************************/
+
+.reveal .hljs table {
+	margin: initial;
+}
+
+.reveal .hljs-ln-code,
+.reveal .hljs-ln-numbers {
+	padding: 0;
+	border: 0;
+}
+
+.reveal .hljs-ln-numbers {
+	opacity: 0.6;
+	padding-right: 0.75em;
+	text-align: right;
+	vertical-align: top;
+}
+
+.reveal .hljs[data-line-numbers]:not([data-line-numbers=""]) tr:not(.highlight-line) {
+	opacity: 0.4;
 }
 
 
